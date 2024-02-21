@@ -140,11 +140,11 @@ class _ChatContentState extends State<ChatContent> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (_chat.history.length == 0)
-            Align(
-              alignment: Alignment.center,
+          if (_chat.history.isEmpty)
+            Padding(
+              padding: const EdgeInsets.only(left: 50, top: 50),
               child: Lottie.network(
-                  "https://lottie.host/85247422-b6d0-4951-b0b0-b411931a3666/0T9YRkMnyM.json",
+                  "https://lottie.host/a8e0aaba-178d-44c5-88aa-985a6cd5235e/6QSGdXj2g5.json",
                   height: 300,
                   width: 300),
             ),

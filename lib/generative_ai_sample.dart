@@ -11,7 +11,7 @@ class GenerativeAISample extends StatelessWidget {
             "Gemini AI",
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: const Color(0xff29384D),
+          backgroundColor: const Color(0xff2E4374),
         ),
         body: const ChatContent(),
       );

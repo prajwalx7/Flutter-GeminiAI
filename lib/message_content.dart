@@ -7,7 +7,7 @@ class MessageContent extends StatelessWidget {
 
   const MessageContent({
     Key? key,
-    required this.text,
+    required this.text, // Define the 'text' parameter here
     required this.isFromUser,
   }) : super(key: key);
 
