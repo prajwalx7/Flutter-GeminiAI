@@ -3,51 +3,50 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 class MessageContent extends StatelessWidget {
   final String text;
-  final bool isFromUser;
+  final bool userInput;
 
   const MessageContent({
     Key? key,
-    required this.text, // Define the 'text' parameter here
-    required this.isFromUser,
+    required this.text,
+    required this.userInput,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment:
-          isFromUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+          userInput ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         Flexible(
           child: Container(
             constraints: const BoxConstraints(maxWidth: 500),
             decoration: BoxDecoration(
-              color: isFromUser
-                  ? const Color(0xff465262)
-                  : const Color(0xffE3E1D9),
+              color:
+                  userInput ? const Color(0xff465262) : const Color(0xff9BBEC8),
               borderRadius: BorderRadius.circular(18),
             ),
             padding: const EdgeInsets.symmetric(
-              vertical: 15,
-              horizontal: 15,
+              vertical: 10,
+              horizontal: 20,
             ),
             margin: const EdgeInsets.only(top: 10, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (!isFromUser)
+                if (!userInput)
                   const Text(
-                    'Gemini AI : ',
+                    'Gemini AI :',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
                   ),
                 const SizedBox(height: 5),
                 MarkdownBody(
                   styleSheet: MarkdownStyleSheet(
                     p: TextStyle(
-                      color: isFromUser ? Colors.white : Colors.black,
-                      fontSize: 15,
+                      color: userInput ? Colors.white : Colors.black,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                     ),
                   ),

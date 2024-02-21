@@ -27,6 +27,7 @@ class _ChatContentState extends State<ChatContent> {
     _chat = _model.startChat();
   }
 
+  // Function to scroll to the bottom of the chat
   void _scrollDown() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(milliseconds: 100), () {
@@ -113,9 +114,7 @@ class _ChatContentState extends State<ChatContent> {
           ? const Padding(
               padding: EdgeInsets.all(12.0),
               child: CircularProgressIndicator(
-                color: Color(
-                  0xff465262,
-                ),
+                color: Color(0xff2E4374),
                 strokeWidth: 4,
                 strokeCap: StrokeCap.round,
               ),
@@ -125,9 +124,9 @@ class _ChatContentState extends State<ChatContent> {
                 _sendChatMessage(_textController.text);
                 _textFieldFocus.unfocus();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_circle_up_sharp,
-                color: Theme.of(context).colorScheme.secondary,
+                color: Color(0xff2E4374),
                 size: 35,
               ),
             ),
@@ -143,9 +142,10 @@ class _ChatContentState extends State<ChatContent> {
             Padding(
               padding: const EdgeInsets.only(left: 50, top: 60),
               child: Lottie.network(
-                  "https://lottie.host/a8e0aaba-178d-44c5-88aa-985a6cd5235e/6QSGdXj2g5.json",
-                  height: 300,
-                  width: 300),
+                "https://lottie.host/a8e0aaba-178d-44c5-88aa-985a6cd5235e/6QSGdXj2g5.json",
+                height: 300,
+                width: 300,
+              ),
             ),
           Expanded(
             child: _apiKey.isNotEmpty
@@ -160,7 +160,7 @@ class _ChatContentState extends State<ChatContent> {
 
                       return MessageContent(
                         text: text,
-                        isFromUser: content.role == 'user',
+                        userInput: content.role == 'user',
                       );
                     },
                     itemCount: _chat.history.length,

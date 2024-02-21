@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'generative_ai_sample.dart';
+import 'gemini_ai.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,5 +10,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: GeminiAI(),
+        
       );
 }
