@@ -1,6 +1,7 @@
 import 'package:chatbot/message_content.dart';
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:lottie/lottie.dart';
 
 class ChatContent extends StatefulWidget {
   const ChatContent({Key? key}) : super(key: key);
@@ -17,14 +18,14 @@ class _ChatContentState extends State<ChatContent> {
   final _textFieldFocus = FocusNode();
   bool _loading = false;
   // bool _chatStarted = false;
-  static const _apiKey = "API Key";
+  static const _apiKey = "AIzaSyAhsmG6W1XiBeiUQevpsRjbi4HaNAacqDM";
 
   @override
   void initState() {
     super.initState();
     _model = GenerativeModel(model: 'gemini-pro', apiKey: _apiKey);
     _chat = _model.startChat();
-    // _chatStarted = false;
+    // _chatStarted = true;
   }
 
   void _scrollDown() {
@@ -91,17 +92,6 @@ class _ChatContentState extends State<ChatContent> {
 
   @override
   Widget build(BuildContext context) {
-    // if (!_chatStarted) {
-    //   return Align(
-    //     alignment: Alignment.center,
-    //     child: Lottie.asset(
-    //       "assets/animation/chatbot.json",
-    //       height: 300,
-    //       width: 300,
-    //       fit: BoxFit.fill,
-    //     ),
-    //   );
-    // }
     var textFieldDecoration = InputDecoration(
       contentPadding: const EdgeInsets.all(20),
       hintText: 'Message Gemini...',
@@ -150,6 +140,14 @@ class _ChatContentState extends State<ChatContent> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (_chat.history.length == 0)
+            Align(
+              alignment: Alignment.center,
+              child: Lottie.network(
+                  "https://lottie.host/85247422-b6d0-4951-b0b0-b411931a3666/0T9YRkMnyM.json",
+                  height: 300,
+                  width: 300),
+            ),
           Expanded(
             child: _apiKey.isNotEmpty
                 ? ListView.builder(
@@ -160,6 +158,7 @@ class _ChatContentState extends State<ChatContent> {
                           .whereType<TextPart>()
                           .map<String>((e) => e.text)
                           .join('');
+
                       return MessageContent(
                         text: text,
                         isFromUser: content.role == 'user',
