@@ -1,8 +1,8 @@
 import 'package:chatbot/chat_content.dart';
 import 'package:flutter/material.dart';
 
-class GenerativeAISample extends StatelessWidget {
-  const GenerativeAISample({Key? key}) : super(key: key);
+class GeminiAI extends StatelessWidget {
+  const GeminiAI({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
