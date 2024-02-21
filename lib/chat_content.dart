@@ -1,3 +1,4 @@
+import 'package:chatbot/constants.dart';
 import 'package:chatbot/message_content.dart';
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
@@ -17,15 +18,13 @@ class _ChatContentState extends State<ChatContent> {
   final _textController = TextEditingController();
   final _textFieldFocus = FocusNode();
   bool _loading = false;
-  // bool _chatStarted = false;
-  static const _apiKey = "AIzaSyAhsmG6W1XiBeiUQevpsRjbi4HaNAacqDM";
+  static const _apiKey = apiKey;
 
   @override
   void initState() {
     super.initState();
     _model = GenerativeModel(model: 'gemini-pro', apiKey: _apiKey);
     _chat = _model.startChat();
-    // _chatStarted = true;
   }
 
   void _scrollDown() {
@@ -142,7 +141,7 @@ class _ChatContentState extends State<ChatContent> {
         children: [
           if (_chat.history.isEmpty)
             Padding(
-              padding: const EdgeInsets.only(left: 50, top: 50),
+              padding: const EdgeInsets.only(left: 50, top: 60),
               child: Lottie.network(
                   "https://lottie.host/a8e0aaba-178d-44c5-88aa-985a6cd5235e/6QSGdXj2g5.json",
                   height: 300,
