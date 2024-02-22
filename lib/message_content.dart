@@ -22,14 +22,14 @@ class MessageContent extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 500),
             decoration: BoxDecoration(
               color:
-                  userInput ? const Color(0xff465262) : const Color(0xff9BBEC8),
-              borderRadius: BorderRadius.circular(18),
+                  userInput ? const Color(0xff2E4374) : const Color(0xff9BBEC8),
+              borderRadius: BorderRadius.circular(12),
             ),
             padding: const EdgeInsets.symmetric(
               vertical: 10,
-              horizontal: 20,
+              horizontal: 10,
             ),
-            margin: const EdgeInsets.only(top: 10, bottom: 10),
+            margin: const EdgeInsets.only(top: 20, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -52,7 +52,7 @@ class MessageContent extends StatelessWidget {
                   ),
                   selectable: true,
                   data: text,
-                ),
+                )
               ],
             ),
           ),

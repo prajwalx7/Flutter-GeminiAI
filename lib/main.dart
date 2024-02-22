@@ -7,9 +7,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => const MaterialApp(
+  Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: GeminiAI(),
-        
+        theme: ThemeData(
+          textSelectionTheme: const TextSelectionThemeData(
+            selectionColor: Color(0xff40A2D8),
+            selectionHandleColor: Color(0xff40A2D8),
+          ),
+        ),
+        home: const GeminiAI(),
       );
 }

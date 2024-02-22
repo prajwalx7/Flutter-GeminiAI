@@ -107,7 +107,7 @@ class _ChatContentState extends State<ChatContent> {
           Radius.circular(8),
         ),
         borderSide: BorderSide(
-          color: Colors.black54,
+          color: Colors.black,
         ),
       ),
       suffixIcon: _loading
@@ -151,8 +151,8 @@ class _ChatContentState extends State<ChatContent> {
             child: _apiKey.isNotEmpty
                 ? ListView.builder(
                     controller: _scrollController,
-                    itemBuilder: (context, idx) {
-                      var content = _chat.history.toList()[idx];
+                    itemBuilder: (context, index) {
+                      var content = _chat.history.toList()[index];
                       var text = content.parts
                           .whereType<TextPart>()
                           .map<String>((e) => e.text)
